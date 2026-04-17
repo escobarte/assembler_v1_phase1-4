@@ -1,5 +1,47 @@
-# dev_algorythm Branch
-## Steps detailed of process in Notion
+# AI-Ready Starter Kit
 
-### Please Update file Instructions.md >> from >> NOtion.so with latest Updates.
-#### Actual file is outdated, and not coresponded to the fact. 
+## This is 1st Version  **«AI-Ready Starter Kit»**. Это не просто проект, а настроенная среда, где ИИ уже знает, как кодить в твоем стиле.
+
+Вот готовый текст, который можно просто скопировать:
+
+---
+
+# 🚀 Next.js + Tailwind AI-Driven Template
+
+Этот репозиторий — готовый фундамент для быстрой разработки веб-интерфейсов. Главная фишка: проект полностью оптимизирован для работы с **Claude Code** и содержит «обученных» субагентов.
+
+### 🛠 Стек технологий
+* **Framework:** Next.js (App Router)
+* **Styling:** Tailwind CSS + Custom Design Tokens
+* **Language:** TypeScript
+* **AI Tooling:** Claude Code (с настроенными агентами и скиллами)
+
+### 📦 Что внутри (Core Features)
+1.  **Design System:** Полная конфигурация в `tailwind.config.ts` и `globals.css` на основе системы из папки `cc_design`.
+2.  **AI Agents:** В папке `.claude/agents/` живет `ui-react-tailwind-specialist` — ваш личный Senior Frontend, который знает все гайдлайны проекта.
+3.  **Pre-built UI:** Готовые компоненты (Button, Card, Input, Layout), которые прошли проверку сборкой.
+4.  **Workflow:** Файл `Instructions.md` с описанием фаз разработки для четкого следования плану.
+
+### 🚀 Как запустить
+1. Клонируйте репозиторий.
+2. Установите зависимости:
+   ```bash
+   npm install
+   ```
+3. Запустите Claude Code в корне папки:
+   ```bash
+   claude
+   ```
+4. Делегируйте задачи агенту:
+   `@ui-react-tailwind-specialist создай новую страницу на основе гайдлайнов...`
+
+### 📂 Структура для переиспользования
+* `src/components/ui/` — библиотека базовых компонентов.
+* `CLAUDE.md` — глобальные правила поведения ИИ в этом проекте.
+* `cc_design/` — документация визуального стиля.
+
+---
+
+**Зачем это хранить?** Чтобы не настраивать `tailwind.config.ts` и не объяснять Клоду правила скруглений и теней каждый раз с нуля. Просто развернул — и сразу пилишь Фазу 5.
+
+Как думаешь, стоит добавить в README краткий список того, что именно было сделано в первых 4 фазах?
