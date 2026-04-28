@@ -4,89 +4,137 @@
 
 @layer utilities {
   .text-balance { text-wrap: balance; }
+
+  /* Brutalist noise texture overlay for dark hero */
+  .bg-noise::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.04;
+    background-image: url("data:image/svg+xml;utf8,<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+    mix-blend-mode: overlay;
+  }
 }
 
 @layer base {
+  /* ───────────────────────────────────────────────────────────────────────
+     BRUTALIST DESIGN TOKENS — radix-nova / oklch
+     Cold contrast only. No warm tones. (cc_design/DESIGN.md)
+     ─────────────────────────────────────────────────────────────────────── */
   :root {
-    /* --- Claude / Anthropic Design Tokens --- */
+    /* Surfaces — Light theme: light-gray global / dark hero blocks inside */
+    --background: oklch(0.967 0 0);          /* #F4F4F5 — Background Light */
+    --foreground: oklch(0.145 0 0);          /* #0A0A0A — Text Inverted */
+    --card: oklch(1 0 0);                    /* #FFFFFF */
+    --card-foreground: oklch(0.145 0 0);
+    --popover: oklch(1 0 0);
+    --popover-foreground: oklch(0.145 0 0);
 
-    /* Surfaces */
-    --background: #f5f4ed;   /* Parchment */
-    --foreground: #141413;   /* Near Black */
-    --card: #faf9f5;         /* Ivory */
-    --card-foreground: #141413;
-    --popover: #faf9f5;
-    --popover-foreground: #141413;
-
-    /* Interactive */
-    --primary: #c96442;      /* Terracotta Brand */
-    --primary-foreground: #faf9f5;
-    --secondary: #e8e6dc;    /* Warm Sand */
-    --secondary-foreground: #4d4c48;
-    --muted: #f0eee6;
-    --muted-foreground: #5e5d59;  /* Olive Gray */
-    --accent: #e8e6dc;
-    --accent-foreground: #4d4c48;
+    /* Interactive — primary is deep black (brutalist CTA) */
+    --primary: oklch(0.145 0 0);             /* #0A0A0A */
+    --primary-foreground: oklch(1 0 0);      /* #FFFFFF */
+    --secondary: oklch(0.967 0 0);
+    --secondary-foreground: oklch(0.145 0 0);
+    --muted: oklch(0.967 0 0);
+    --muted-foreground: oklch(0.708 0 0);    /* #A1A1AA — Text Secondary */
+    --accent: oklch(0.967 0 0);
+    --accent-foreground: oklch(0.145 0 0);
 
     /* States */
-    --destructive: #b53333;  /* Error Crimson */
+    --destructive: oklch(0.577 0.245 27.325);
 
     /* Structure */
-    --border: #f0eee6;       /* Border Cream */
-    --input: #e8e6dc;        /* Border Warm */
-    --ring: #3898ec;         /* Focus Blue (only cool color — accessibility) */
-    --radius: 0.5rem;        /* 8px */
+    --border: oklch(0.922 0 0);              /* subtle grid border */
+    --input: oklch(0.922 0 0);
+    --ring: oklch(0.145 0 0);                /* black focus ring — brutalist */
+    --radius: 1.5rem;                        /* 24px — rounded-3xl hero default */
+
+    /* Grid accents */
+    --grid-line: oklch(0.269 0 0);           /* #333333 */
 
     /* Sidebar */
-    --sidebar: #faf9f5;
-    --sidebar-foreground: #141413;
-    --sidebar-primary: #c96442;
-    --sidebar-primary-foreground: #faf9f5;
-    --sidebar-accent: #f0eee6;
-    --sidebar-accent-foreground: #4d4c48;
-    --sidebar-border: #f0eee6;
-    --sidebar-ring: #3898ec;
+    --sidebar: oklch(1 0 0);
+    --sidebar-foreground: oklch(0.145 0 0);
+    --sidebar-primary: oklch(0.145 0 0);
+    --sidebar-primary-foreground: oklch(1 0 0);
+    --sidebar-accent: oklch(0.967 0 0);
+    --sidebar-accent-foreground: oklch(0.145 0 0);
+    --sidebar-border: oklch(0.922 0 0);
+    --sidebar-ring: oklch(0.145 0 0);
   }
 
+  /* ───────────────────────────────────────────────────────────────────────
+     DARK THEME — Brutalist Hero (default emphasis surface)
+     ─────────────────────────────────────────────────────────────────────── */
   .dark {
-    --background: #141413;   /* Deep Dark */
-    --foreground: #faf9f5;   /* Ivory */
-    --card: #30302e;         /* Dark Surface */
-    --card-foreground: #faf9f5;
-    --popover: #30302e;
-    --popover-foreground: #faf9f5;
+    --background: oklch(0.145 0 0);          /* #0A0A0A — deep black */
+    --foreground: oklch(1 0 0);              /* #FFFFFF */
+    --card: oklch(0.205 0 0);
+    --card-foreground: oklch(1 0 0);
+    --popover: oklch(0.205 0 0);
+    --popover-foreground: oklch(1 0 0);
 
-    --primary: #c96442;      /* Terracotta stays */
-    --primary-foreground: #faf9f5;
-    --secondary: #30302e;
-    --secondary-foreground: #faf9f5;
-    --muted: #30302e;
-    --muted-foreground: #87867f;  /* Stone Gray */
-    --accent: #3d3d3a;
-    --accent-foreground: #faf9f5;
+    --primary: oklch(1 0 0);                 /* white CTA on dark */
+    --primary-foreground: oklch(0.145 0 0);
+    --secondary: oklch(0.205 0 0);
+    --secondary-foreground: oklch(1 0 0);
+    --muted: oklch(0.205 0 0);
+    --muted-foreground: oklch(0.708 0 0);    /* #A1A1AA */
+    --accent: oklch(0.269 0 0);
+    --accent-foreground: oklch(1 0 0);
 
-    --destructive: #b53333;
+    --destructive: oklch(0.704 0.191 22.216);
 
-    --border: #30302e;       /* Border Dark */
-    --input: #30302e;
-    --ring: #3898ec;
+    --border: oklch(0.269 0 0);              /* #333333 — grid line */
+    --input: oklch(0.269 0 0);
+    --ring: oklch(1 0 0);
 
-    --sidebar: #30302e;
-    --sidebar-foreground: #faf9f5;
-    --sidebar-primary: #c96442;
-    --sidebar-primary-foreground: #faf9f5;
-    --sidebar-accent: #3d3d3a;
-    --sidebar-accent-foreground: #faf9f5;
-    --sidebar-border: #30302e;
-    --sidebar-ring: #3898ec;
+    --grid-line: oklch(0.269 0 0);
+
+    --sidebar: oklch(0.145 0 0);
+    --sidebar-foreground: oklch(1 0 0);
+    --sidebar-primary: oklch(1 0 0);
+    --sidebar-primary-foreground: oklch(0.145 0 0);
+    --sidebar-accent: oklch(0.269 0 0);
+    --sidebar-accent-foreground: oklch(1 0 0);
+    --sidebar-border: oklch(0.269 0 0);
+    --sidebar-ring: oklch(1 0 0);
   }
 
-  * { border-color: var(--border); }
+  * {
+    border-color: var(--border);
+  }
 
-  body { @apply bg-background text-foreground; }
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans;
+    font-feature-settings: "ss01", "cv11";
+  }
+
+  /* ─── Typography defaults — brutalist hierarchy ──────────────────────── */
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bold tracking-tighter;
+    line-height: var(--lh-heading, 1.1);
+  }
+
+  h1 { @apply text-6xl md:text-7xl lg:text-8xl tracking-tighter; line-height: 0.9; }
+  h2 { @apply text-4xl md:text-5xl lg:text-6xl tracking-tighter; line-height: 1.0; }
+  h3 { @apply text-3xl md:text-4xl tracking-tight; line-height: 1.1; }
+
+  /* Selection — high contrast brutalist */
+  ::selection {
+    background: var(--foreground);
+    color: var(--background);
+  }
 }
 
-/* Accordion & Collapsible keyframes (shadcn/ui) */
+/* ─── shadcn keyframes ──────────────────────────────────────────────────── */
 @keyframes accordion-down {
   from { height: 0; }
   to   { height: var(--radix-accordion-content-height); }
