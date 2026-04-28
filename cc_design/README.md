@@ -5,7 +5,5 @@
 
 | File | Description |
 |------|-------------|
-| `DESIGN.md` | Complete design system documentation (9 sections) |
-| `preview.html` | Interactive design token catalog (light) |
-| `preview-dark.html` | Interactive design token catalog (dark) |
+| `DESIGN.md` | Complete design tokens and system documentation  |
 
